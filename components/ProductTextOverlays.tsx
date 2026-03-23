@@ -39,24 +39,39 @@ export default function ProductTextOverlays({ product, scrollYProgress }: Props)
         {sections.map((section, idx) => (
           <motion.div
             key={idx}
-            style={{ opacity: section.opacity, y: section.y }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+            style={{ 
+                opacity: section.opacity, 
+                y: section.y,
+                padding: idx === 0 ? "120px 24px" : "120px 24px"
+            }}
+            className={`absolute inset-0 flex flex-col ${
+              idx === 0 
+              ? "!justify-between !items-start !text-left" 
+              : "!justify-center !items-center !text-center"
+            }`}
           >
-            <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.8 }}
-                className="mb-4 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-white/60"
-            >
-                {product.slogan}
-            </motion.p>
-            <h2 className="text-[12vw] md:text-[10vw] font-black uppercase tracking-tighter leading-[0.85] text-white drop-shadow-2xl italic">
-              {section.content.title}
-            </h2>
-            {section.content.subtitle && (
-              <p className="mt-8 text-xl md:text-3xl font-medium tracking-tight text-white/90 max-w-2xl drop-shadow-xl bg-black/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10 italic">
-                {section.content.subtitle}
-              </p>
-            )}
+            <div className={`flex flex-col ${idx === 0 ? "items-start" : "items-center"} max-w-[700px] ${idx !== 0 ? "mx-auto gap-6" : ""}`}>
+                <motion.p 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.8 }}
+                    className="mb-6 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] !text-[#FDE68A]/80"
+                >
+                    {product.slogan}
+                </motion.p>
+                <h2 className={`${idx === 0 ? "text-[8vw] md:text-[6vw]" : "text-[48px] md:text-[64px]"} font-black uppercase tracking-tighter leading-[0.8] !text-white drop-shadow-2xl italic`}>
+                    {section.content.title}
+                </h2>
+                
+                {section.content.subtitle && (
+                  <p className={`font-medium tracking-tight !text-[#FDE68A] drop-shadow-xl italic ${
+                    idx === 0 
+                    ? "text-lg md:text-xl max-w-lg mt-auto" 
+                    : "text-[18px] md:text-[22px] max-w-xl mt-8"
+                  }`}>
+                    {section.content.subtitle}
+                  </p>
+                )}
+            </div>
           </motion.div>
         ))}
       </div>
