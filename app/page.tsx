@@ -109,13 +109,15 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="py-32 px-6 max-w-5xl mx-auto text-center"
             >
-               <h1 className="text-5xl md:text-8xl font-black mb-4 tracking-tighter uppercase italic">
+               <h1 className="text-6xl md:text-[10vw] font-black mb-4 tracking-tighter uppercase italic leading-[0.8]">
                    {product.name}
                </h1>
-               <p className="text-3xl font-bold mb-12" style={{ color: product.themeColor }}>{product.buyNowSection.price} <span className="text-sm opacity-60 font-normal">{product.buyNowSection.unit}</span></p>
+               <p className="text-3xl font-black mb-12 tracking-tight" style={{ color: product.themeColor }}>
+                  {product.buyNowSection.price} <span className="text-sm opacity-60 font-medium">{product.buyNowSection.unit}</span>
+               </p>
                
                <button 
-                  className="px-12 py-6 text-xl font-black uppercase tracking-widest text-white rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95"
+                  className="px-16 py-8 text-2xl font-black uppercase tracking-widest text-white rounded-full transition-all duration-500 transform hover:scale-110 hover:rotate-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] active:scale-95 shadow-2xl"
                   style={{ background: product.themeColor }}
                 >
                    Add to Cart

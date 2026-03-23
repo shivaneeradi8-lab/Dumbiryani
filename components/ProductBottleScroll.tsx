@@ -96,26 +96,33 @@ export default function ProductBottleScroll({ product, scrollYProgress }: Props)
   }, [images, frameIndex]);
 
   return (
-    <div className="absolute inset-0 w-full h-full z-0 overflow-hidden flex items-center justify-center">
-        {/* Large Background Text */}
+    <div className="absolute inset-0 w-full h-full z-0 overflow-hidden flex items-center justify-center pointer-events-none">
+        {/* Large Background Text - The "Brand" Layer */}
         <motion.div 
             style={{ 
                 opacity: bgTextOpacity, 
                 scale: bgTextScale,
-                color: product.themeColor 
+                color: product.bgTextColor 
             }}
-            className="absolute inset-0 flex items-center justify-center z-0 select-none pointer-events-none"
+            className="absolute inset-0 flex items-center justify-center z-0 select-none"
         >
-            <h1 className="text-[25vw] font-black uppercase whitespace-nowrap blur-sm opacity-20">
+            <h1 className="text-[35vw] font-black uppercase whitespace-nowrap leading-none tracking-tighter opacity-30 select-none">
                 {product.name.split(' ')[0]}
             </h1>
         </motion.div>
 
-        <canvas 
-            ref={canvasRef} 
-            className="w-full h-full object-contain relative z-10 pointer-events-none" 
-            style={{ width: '100vw', height: '100vh' }}
-        />
+        {/* The Product Canvas - The "Object" Layer */}
+        <div className="relative z-10 w-full h-full flex items-center justify-center">
+            <canvas 
+                ref={canvasRef} 
+                className="w-full h-full object-contain" 
+                style={{ 
+                    width: '100vw', 
+                    height: '100vh',
+                    imageRendering: 'auto' // Best balance for high-res sequences
+                }}
+            />
+        </div>
     </div>
   );
 }

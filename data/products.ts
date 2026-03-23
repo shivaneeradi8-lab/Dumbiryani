@@ -14,6 +14,7 @@ export interface Product {
     section2: { title: string; subtitle: string };
     section3: { title: string; subtitle: string };
     section4: { title: string; subtitle: string };
+    slogan: string;
     detailsSection: { title: string; description: string; imageAlt: string };
     freshnessSection: { title: string; description: string };
     buyNowSection: {
@@ -45,7 +46,8 @@ export interface Product {
         section1: { title: "Chicken Dum Biryani.", subtitle: "Layered perfection." },
         section2: { title: "Aromatic basmati layers.", subtitle: "Each grain infused with saffron, ghee, and spices." },
         section3: { title: "Slow-cooked to perfection.", subtitle: "Sealed and cooked on dum for deep flavor infusion." },
-        section4: { title: "Authentic. Traditional.", subtitle: "" },
+        section4: { title: "Chicken Dum Biryani.", subtitle: "" },
+        slogan: "Pure Tradition.",
         detailsSection: {
             title: "Crafted with Tradition",
             description: "Prepared using age-old dum techniques with premium basmati rice, marinated chicken, fried onions, and spices, sealed and slow-cooked to lock aroma.",
@@ -83,6 +85,7 @@ export interface Product {
         section2: { title: "Succulent Prime Cuts.", subtitle: "Slow-cooked mutton that melts in your mouth." },
         section3: { title: "Saffron Infusion.", subtitle: "Rich Kashmiri saffron for an unmistakable aroma." },
         section4: { title: "Rich. Indulgent.", subtitle: "" },
+        slogan: "Royal Heritage.",
         detailsSection: {
             title: "A Royal Heritage",
             description: "Our Mutton Biryani is inspired by the Nizami kitchens, using tender cuts of goat meat marinated in yogurt and hand-ground spices for 24 hours.",
@@ -108,8 +111,8 @@ export interface Product {
         description: "Farm fresh paneer - Handpicked veggies - Light & flavorful",
         folderPath: "/images/chicken", // Reusing chicken frames for the demo
         themeColor: "#2D5A27",
-        bgTextColor: "rgba(45, 90, 39, 0.1)",
-        gradient: "linear-gradient(135deg, #1A3C15 0%, #2D5A27 100%)",
+        bgTextColor: "rgba(45, 90, 39, 0.25)",
+        gradient: "radial-gradient(circle at center, #2D5A27 0%, #1A3C15 100%)",
         features: ["Malai Paneer", "Garden Fresh", "Aromatic Spices"],
         stats: [
           { label: "Spice Level", val: "Mild" },
@@ -120,6 +123,7 @@ export interface Product {
         section2: { title: "Soft Malai Paneer.", subtitle: "Handcrafted paneer cubes tossed in aromatic spices." },
         section3: { title: "Handpicked Vegetables.", subtitle: "Carrots, beans, and peas selected for sweetness and crunch." },
         section4: { title: "Light. Flavorful.", subtitle: "" },
+        slogan: "Garden Fresh.",
         detailsSection: {
             title: "Garden to Plate",
             description: "A vegetarian masterpiece using seasonal vegetables and premium paneer, layered with long-grain basmati and fresh mint leaves.",

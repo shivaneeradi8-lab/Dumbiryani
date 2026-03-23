@@ -10,22 +10,21 @@ interface Props {
 }
 
 export default function ProductTextOverlays({ product, scrollYProgress }: Props) {
-  // Fade in and out mappings for the 4 sections
-  // Section 1: 0 to 0.15 fades in, 0.15 to 0.25 fades out
+  // Enhanced transition timings for a more "snappy" feels
   const opacity1 = useTransform(scrollYProgress, [0, 0.1, 0.2, 0.25], [0, 1, 1, 0]);
-  const y1 = useTransform(scrollYProgress, [0, 0.1, 0.2, 0.25], [50, 0, 0, -50]);
+  const y1 = useTransform(scrollYProgress, [0, 0.1, 0.2, 0.25], [100, 0, 0, -100]);
 
   // Section 2: 0.25 to 0.40 fades in, 0.40 to 0.50 fades out
   const opacity2 = useTransform(scrollYProgress, [0.25, 0.35, 0.45, 0.50], [0, 1, 1, 0]);
-  const y2 = useTransform(scrollYProgress, [0.25, 0.35, 0.45, 0.50], [50, 0, 0, -50]);
+  const y2 = useTransform(scrollYProgress, [0.25, 0.35, 0.45, 0.50], [100, 0, 0, -100]);
 
   // Section 3: 0.50 to 0.65 fades in, 0.65 to 0.75 fades out
   const opacity3 = useTransform(scrollYProgress, [0.50, 0.60, 0.70, 0.75], [0, 1, 1, 0]);
-  const y3 = useTransform(scrollYProgress, [0.50, 0.60, 0.70, 0.75], [50, 0, 0, -50]);
+  const y3 = useTransform(scrollYProgress, [0.50, 0.60, 0.70, 0.75], [100, 0, 0, -100]);
 
   // Section 4: 0.75 to 0.9 fades in, 0.9 to 1 fades out
   const opacity4 = useTransform(scrollYProgress, [0.75, 0.85, 0.95, 1], [0, 1, 1, 0]);
-  const y4 = useTransform(scrollYProgress, [0.75, 0.85, 0.95, 1], [50, 0, 0, -50]);
+  const y4 = useTransform(scrollYProgress, [0.75, 0.85, 0.95, 1], [100, 0, 0, -100]);
 
   const sections = [
     { opacity: opacity1, y: y1, content: product.section1 },
@@ -35,7 +34,7 @@ export default function ProductTextOverlays({ product, scrollYProgress }: Props)
   ];
 
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none">
+    <div className="absolute inset-0 z-20 pointer-events-none">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center">
         {sections.map((section, idx) => (
           <motion.div
@@ -43,11 +42,18 @@ export default function ProductTextOverlays({ product, scrollYProgress }: Props)
             style={{ opacity: section.opacity, y: section.y }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
           >
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight drop-shadow-2xl">
+            <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                className="mb-4 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-white/60"
+            >
+                {product.slogan}
+            </motion.p>
+            <h2 className="text-[12vw] md:text-[10vw] font-black uppercase tracking-tighter leading-[0.85] text-white drop-shadow-2xl italic">
               {section.content.title}
             </h2>
             {section.content.subtitle && (
-              <p className="text-xl md:text-3xl text-orange-100 font-medium max-w-3xl drop-shadow-xl">
+              <p className="mt-8 text-xl md:text-3xl font-medium tracking-tight text-white/90 max-w-2xl drop-shadow-xl bg-black/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10 italic">
                 {section.content.subtitle}
               </p>
             )}
