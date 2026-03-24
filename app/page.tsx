@@ -50,19 +50,19 @@ export default function Home() {
           <div className="relative z-20 bg-black/20 backdrop-blur-3xl">
             {/* Details Section (Section 2) */}
             <motion.section 
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="py-32 px-6 border-b border-white/10 flex flex-col items-center justify-center text-center"
               style={{ background: "linear-gradient(135deg, #8B5E3C 0%, #D4A373 100%)" }}
             >
               <div className="max-w-[700px] mx-auto flex flex-col gap-6">
                   <h2 className="text-[48px] md:text-[64px] font-black leading-tight text-white uppercase tracking-tighter italic">
-                    {product.detailsSection.title}
+                    Aromatic basmati layers.
                   </h2>
                   <p className="text-[18px] md:text-[22px] font-medium leading-relaxed text-[#FDE68A]">
-                    {product.detailsSection.description}
+                    Each grain infused with saffron, ghee, and handcrafted spices, delivering rich flavor in every bite.
                   </p>
                   <div className="grid grid-cols-3 gap-6 mt-12 w-full">
                     {product.stats.map((stat, idx) => (
@@ -77,19 +77,19 @@ export default function Home() {
 
             {/* Freshness Section (Section 3) */}
             <motion.section 
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="py-32 px-6 border-b border-white/10 flex flex-col items-center justify-center text-center"
               style={{ background: "linear-gradient(135deg, #8B5E3C 0%, #D4A373 100%)" }}
             >
                 <div className="max-w-[700px] mx-auto flex flex-col gap-6">
                    <h2 className="text-[48px] md:text-[64px] font-black leading-tight tracking-tighter text-white uppercase italic">
-                       {product.freshnessSection.title}
+                       Slow-cooked to perfection.
                     </h2>
                    <p className="text-[18px] md:text-[22px] font-medium leading-relaxed text-[#FDE68A]">
-                       {product.freshnessSection.description}
+                       Sealed and cooked using the traditional dum method, locking aroma, moisture, and deep authentic taste.
                     </p>
                 </div>
             </motion.section>
